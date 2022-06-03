@@ -1,0 +1,35 @@
+-------------------------------------------------------
+
+LIBRARY ieee;
+USE ieee.std_logic_1164.all;
+USE ieee.numeric_std.all;
+
+-------------------------------------------------------
+
+ENTITY PDUA IS 
+	GENERIC(DATA_WIDTH	:	integer	:=8;
+			  ADDR_WIDTH	:	integer	:=2;
+			  N1				:	INTEGER	:=8);
+	PORT(		clk		:	IN		STD_LOGIC;
+				rst		:	IN		STD_LOGIC;
+				busA		:	IN		STD_LOGIC_VECTOR(N1-1 DOWNTO 0);
+				busB		:	IN		STD_LOGIC_VECTOR(N1-1 DOWNTO 0);
+				busC		:	IN		STD_LOGIC_VECTOR(N1-1 DOWNTO 0););--FLAGS
+END ENTITY PDUA;
+
+ARCHITECTURE rtl of PDUA is
+
+SIGNAL bus_alu		:	STD_LOGIC_VECTOR(MAX_WIDTH-1 DOWNTO 0);
+SIGNAL bus_A		:	STD_LOGIC_VECTOR(MAX_WIDTH-1 DOWNTO 0);
+SIGNAL bus_B		:	STD_LOGIC_VECTOR(MAX_WIDTH-1 DOWNTO 0);
+SIGNAL bus_C		:	STD_LOGIC_VECTOR(MAX_WIDTH-1 DOWNTO 0);
+
+Begin 
+ALU_processing: ENTITY work.ALU		
+port map (	clk			=>	clk,	
+				rst			=>	rst,
+				busA			=>	bus_A,
+				busB			=>	bus_B);
+				
+
+END ENTITY alu;

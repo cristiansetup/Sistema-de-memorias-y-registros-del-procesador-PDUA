@@ -1,0 +1,68 @@
+-------------------------------------------------------
+LIBRARY IEEE;
+USE ieee.std_logic_1164.all;
+-------------------------------------------------------
+ENTITY PDUA_tb IS
+END ENTITY;
+-------------------------------------------------------
+ARCHITECTURE testbench OF PDUA_tb IS
+-------------------------------------------------------
+	SIGNAL	clk_tb				:	STD_LOGIC;
+	SIGNAL	rst_tb				:	STD_LOGIC;
+	SIGNAL	selop_tb				:	STD_LOGIC_VECTOR(2 DOWNTO 0);
+	SIGNAL	shamt_tb				:	STD_LOGIC_VECTOR(1 DOWNTO 0);
+	SIGNAL	ir_en_tb				:	STD_LOGIC;
+	SIGNAL	wr_rdn_tb			:	STD_LOGIC;
+	SIGNAL	mdr_en_tb			:	STD_LOGIC;
+	SIGNAL	mdr_alu_n_tb		:	STD_LOGIC;
+	SIGNAL	mar_en_tb			:	STD_LOGIC;
+	SIGNAL	enaf_tb				:	STD_LOGIC;
+	SIGNAL	HR_tb					:	STD_LOGIC;
+	SIGNAL	SC_tb					:	STD_LOGIC_VECTOR(2 DOWNTO 0);
+	SIGNAL	SB_tb					:	STD_LOGIC_VECTOR(2 DOWNTO 0);
+	SIGNAL	ir_q_tb				:	STD_LOGIC_VECTOR(7 DOWNTO 0);
+	SIGNAL	C_tb					:	STD_LOGIC;
+	SIGNAL	N_tb					:	STD_LOGIC;
+	SIGNAL	P_tb					:	STD_LOGIC;
+	SIGNAL	Z_tb					:	STD_LOGIC;
+-------------------------------------------------------
+
+
+BEGIN
+
+	DUT: ENTITY work.PDUA
+	PORT MAP(		clk				=>	clk_tb,
+						rst				=> rst_tb,
+						selop				=> selop_tb,
+						shamt				=> shamt_tb,
+						ir_en				=>	ir_en_tb,
+						wr_rdn			=> wr_rdn_tb,
+						mdr_en			=> mdr_en_tb,
+						mdr_alu			=> mdr_alu_tb,
+						mar_en			=> mar_en_tb,
+						enaf				=> enaf_tb,
+						HR					=> HR_tb,
+						SC					=> SC_tb,
+						SB					=> SB_tb,
+						ir_q				=> ir_q_tb,
+						C					=> C_tb,
+						N					=> N_tb,
+						P					=> P_tb,
+						Z					=> Z_tb,);
+	
+		clock: process
+	BEGIN
+		clk_tb <= '1';
+		WAIT FOR 10 ns;
+		
+		clk_tb <= '0';
+		WAIT FOR 10 ns;
+
+	END PROCESS;
+	signal_generation: PROCESS		
+	
+	BEGIN
+	
+	
+	   END PROCESS signal_generation;
+END ARCHITECTURE;

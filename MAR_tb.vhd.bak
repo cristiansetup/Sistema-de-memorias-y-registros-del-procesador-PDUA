@@ -1,0 +1,24 @@
+-------------------------------------------------------
+LIBRARY IEEE;
+USE ieee.std_logic_1164.all;
+-------------------------------------------------------
+ENTITY MAR_tb IS
+END ENTITY;
+-------------------------------------------------------
+ARCHITECTURE testbench OF MAR_tb IS
+-------------------------------------------------------
+	SIGNAL	clk_tb		:	STD_LOGIC;
+	SIGNAL	rst_tb		:	STD_LOGIC;
+	SIGNAL	mar_en_tb	:	STD_LOGIC;
+	SIGNAL	d_tb			:	STD_LOGIC_VECTOR(7 DOWNTO 0);
+	SIGNAL	mar_q_tb		:	STD_LOGIC_VECTOR(7 DOWNTO 0);
+-------------------------------------------------------
+BEGIN
+
+	DUT: ENTITY work.MAR
+	PORT MAP(		clk			=>	clk_tb,
+						rst			=> rst_tb,
+						mar_en		=> mar_en_tb,
+						d				=> d_tb,
+						mar_q			=> mar_q_tb);
+	

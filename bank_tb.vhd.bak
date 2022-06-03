@@ -1,0 +1,49 @@
+-------------------------------------------------------
+LIBRARY IEEE;
+USE ieee.std_logic_1164.all;
+-------------------------------------------------------
+ENTITY banco_tb IS
+END ENTITY;
+-------------------------------------------------------
+ARCHITECTURE testbench OF banco_tb IS
+-------------------------------------------------------
+	SIGNAL	CLK_tb				:	STD_LOGIC;
+	SIGNAL	RESET_n_tb			:	STD_LOGIC;
+	SIGNAL	HR_tb					:	STD_LOGIC;
+	SIGNAL	SC_tb					:	STD_LOGIC_VECTOR(2 DOWNTO 0);
+	SIGNAL	SB_tb					:	STD_LOGIC_VECTOR(2 DOWNTO 0);
+	SIGNAL	BUSC_tb				:	STD_LOGIC_VECTOR(7 DOWNTO 0);
+	SIGNAL	BUSA_tb				:	STD_LOGIC_VECTOR(7 DOWNTO 0);
+	SIGNAL	BUSB_tb				:	STD_LOGIC_VECTOR(7 DOWNTO 0);
+-------------------------------------------------------
+
+BEGIN
+
+	DUT: ENTITY work.banco
+	PORT MAP(		CLK				=>	CLK_tb,
+						RESET_n			=> RESET_n_tb,
+						HR					=> HR_tb,
+						SC					=> SC_tb,
+						SB					=> SB_tb,
+						BUSC				=> BUSC_tb,
+						BUSA				=> BUSA_tb,
+						BUSB				=> BUSB_tb);
+	
+		clock: process
+	BEGIN
+		clk_tb <= '1';
+		WAIT FOR 10 ns;
+		
+		clk_tb <= '0';
+		WAIT FOR 10 ns;
+
+	END PROCESS;
+	signal_generation: PROCESS		
+	
+	BEGIN
+	
+	
+	
+		
+   END PROCESS signal_generation;
+END ARCHITECTURE;

@@ -1,0 +1,41 @@
+-------------------------------------------------------
+LIBRARY IEEE;
+USE ieee.std_logic_1164.all;
+-------------------------------------------------------
+ENTITY my_SPRAM_tb IS
+END ENTITY;
+-------------------------------------------------------
+ARCHITECTURE testbench OF my_SPRAM_tb IS
+-------------------------------------------------------
+	SIGNAL	clk_tb				:	STD_LOGIC;
+	SIGNAL	wr_rdn_tb			:	STD_LOGIC;
+	SIGNAL	addr_tb				:	STD_LOGIC_VECTOR(7 DOWNTO 0);
+	SIGNAL	w_data_tb			:	STD_LOGIC_VECTOR(7 DOWNTO 0);
+	SIGNAL	r_data_tb			:	STD_LOGIC_VECTOR(7 DOWNTO 0);
+-------------------------------------------------------
+
+
+BEGIN
+
+	DUT: ENTITY work.my_SPRAM
+	PORT MAP(		clk				=>	clk_tb,
+						wr_rdn			=> wr_rdn_tb,
+						addr				=> addr_tb_tb,
+						w_data			=> w_data_tb,
+						r_data			=>	r_data_tb);
+	
+		clock: process
+	BEGIN
+		clk_tb <= '1';
+		WAIT FOR 10 ns;
+		
+		clk_tb <= '0';
+		WAIT FOR 10 ns;
+
+	END PROCESS;
+	signal_generation: PROCESS		
+	
+	BEGIN
+	
+	   END PROCESS signal_generation;
+END ARCHITECTURE;
